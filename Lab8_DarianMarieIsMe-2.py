@@ -83,10 +83,14 @@ while menu:
         print(" ")
         width = check_input(width_input)
         height = check_input(height_input)
+        rectangle_area = r.area(width, height)
+        print(area_string, rectangle_area)
     elif menu_option == 4:
         print(" ")
         width = check_input(width_input)
         height = check_input(height_input)
+        rectangle_perimeter = r.perimeter(width, height)
+        print(f"The perimeter is: {rectangle_perimeter}")
     else:
         menu: bool = False
 
