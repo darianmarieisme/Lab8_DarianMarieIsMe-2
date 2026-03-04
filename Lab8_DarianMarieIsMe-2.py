@@ -4,6 +4,13 @@ This program calculates the area of perimeter of circles
 and rectangles
 03/03/2026'''
 
+#importing functions with alias naming to prevent conflicts
+#because area is used in both circle and rectangle
+
+import circle as c
+
+import rectangle as r
+
 #frequently used strings, while loop set to true
 
 menu: bool = True
@@ -11,6 +18,7 @@ invalid_input: str = "Invalid input. Please try again."
 radius_input: str = "Enter the radius of the circle: "
 height_input: str = "Enter the height of the rectangle: "
 width_input: str = "Enter the width of the rectangle: "
+area_string: str = "The area is: "
 
 #color codes ansi escape sequences
 
@@ -64,9 +72,13 @@ while menu:
     if menu_option == 1:
         print(" ")
         radius = check_input(radius_input)
+        circle_area = c.area(radius)
+        print(area_string,circle_area)
     elif menu_option == 2:
         print(" ")
         radius = check_input(radius_input)
+        circle_circumference = c.circumference(radius)
+        print(f"The circumference is: {circle_circumference}")
     elif menu_option == 3:
         print(" ")
         width = check_input(width_input)

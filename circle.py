@@ -1,3 +1,13 @@
-def get_area(radius)
+import math
+
+def area(radius):
     
-def get_circumference(radius)
+    area = math.pi * math.sqrt(radius)
+
+    return area 
+
+def circumference(radius):
+
+    circumference = 2 * math.pi * radius
+
+    return circumference
