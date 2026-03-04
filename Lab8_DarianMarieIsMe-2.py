@@ -4,6 +4,8 @@ This program calculates the area of perimeter of circles
 and rectangles
 03/03/2026'''
 
+#frequently used strings, while loop set to true
+
 menu: bool = True
 invalid_input: str = "Invalid input. Please try again."
 radius_input: str = "Enter the radius of the circle: "
@@ -18,6 +20,26 @@ reset: str = "\033[0m"
 
 press_enter: str = f"Press Enter to {purple}continue{reset}..."
 
+#function to check for valid input
+
+def check_input(prompt: str):
+    while True:
+        user_input = input(prompt)
+
+        if user_input.isdigit():
+            number = int(user_input)
+            if number > 0:
+                return int(user_input)
+            else:
+                print(invalid_input)
+                continue
+        else:
+            print(invalid_input)
+            continue
+
+
+#main program
+
 while menu:
     print("Geometry Calculator")
     print("-"*19)
@@ -29,38 +51,38 @@ while menu:
     f"\n{orange}5.{reset} Exit\n ")
 
     invalid_menu_input: bool = True
-    
-    while invalid_menu_input:
-            user_input: str = input(f"\nEnter your choice ({orange}1-5{reset}): ")
-            
-            if user_input.isdigit():
-                  
-                  menu_option: int = int(user_input)
-                  
-                  if 1 <= menu_option <= 5:
-                    invalid_menu_input = False 
-                  else:
-                    print(invalid_input)
-                    continue
 
+    while invalid_menu_input:
+            menu_option = check_input(f"\nEnter your choice ({orange}1-5{reset}): ")
+            #check menu options are in range
+            if 1 <= menu_option <= 5:
+                invalid_menu_input = False 
             else:
-                 print(invalid_input)
-                 continue
+                print(invalid_input)
+                continue
 
     if menu_option == 1:
-        user_input:str = input(radius_input)
+        print(" ")
+        radius = check_input(radius_input)
     elif menu_option == 2:
-        user_input: str = input(radius_input)
+        print(" ")
+        radius = check_input(radius_input)
     elif menu_option == 3:
-        user_input: str = input(width_input)
-        user_input: str = input(height_input)
+        print(" ")
+        width = check_input(width_input)
+        height = check_input(height_input)
     elif menu_option == 4:
-        user_input: str = input(width_input)
-        user_input: str = input(height_input)
+        print(" ")
+        width = check_input(width_input)
+        height = check_input(height_input)
     else:
         menu: bool = False
 
+#press enter to continue after menu logic runs
+
     if menu_option in range(1,5):
+        print(" ")
         input(press_enter)
+        print(" ")
         menu_option = None
         continue

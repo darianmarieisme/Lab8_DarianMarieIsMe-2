@@ -1,3 +1,3 @@
-def get_radius()
+def get_area(radius)
     
-def get_circumference()
+def get_circumference(radius)
